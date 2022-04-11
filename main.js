@@ -1,6 +1,7 @@
 const searchEl = document.querySelector(".search");
 const searchInputEl = searchEl.querySelector("input");
 const badgeEl = document.querySelector("header .badges");
+const toToEl = document.querySelector("#to-top");
 const fadeEl = document.querySelectorAll(".visual .fade-in");
 
 searchEl.addEventListener("click", function () {
@@ -25,21 +26,35 @@ window.addEventListener(
     if (window.scrollY > 500) {
       // 배지 숨기기
       // gsap.to(요소,지속시간,옵션);
-
       gsap.to(badgeEl, 0.6, {
         opacity: 0,
         display: "none",
+      });
+      // 버튼 보이기
+      gsap.to(toToEl, 0.2, {
+        x: 0,
       });
     } else {
       // 배지 보이지
       gsap.to(badgeEl, 0.6, {
         opacity: 1,
       });
+      //버튼 숨기기
+      gsap.to(toToEl, 0.2, {
+        x: 100,
+      });
     }
   }, 300)
 );
 // _.throttle(함수,시간)
 // gsap.to(요소,지속시간,옵션);
+// 버튼클릭시 윈도우창 위로 올라가기
+toToEl.addEventListener("click", function () {
+  gsap.to(window, 0.7, {
+    scrollTo: 0,
+  });
+});
+
 fadeEl.forEach(function (fadeEl, index) {
   gsap.to(fadeEl, 1, {
     delay: (index + 1) * 0.7, // 0.7,1.7,2.1,2.7 코드실행
@@ -47,7 +62,6 @@ fadeEl.forEach(function (fadeEl, index) {
   });
 });
 // new Swiper(선택자 ,옵션)
-
 new Swiper(".notice-line .swiper", {
   direction: "vertical",
   autoplay: true,
@@ -66,11 +80,23 @@ new Swiper(".promotion .swiper", {
   //   el: ".promotion .swiper-pagination",
   //   clickble: true
   // },
-  // navigation : {
-  //   prevEl: ".promotion .swiper-prev ",
-  //   nextEL: ".promotion .swiper-next"
-  // }
+  navigation: {
+    prevEl: ".promotion .swiper-prev",
+    nextEl: ".promotion .swiper-next",
+  },
 });
+new Swiper(".awards .swiper", {
+  // direction: 'horizontal',
+  autoplay: true,
+  loop: true,
+  spaceBetween: 30,
+  slidesPerView: 5,
+  navigation: {
+    prevEl: ".awards .swiper-prev",
+    nextEl: ".awards .swiper-next",
+  },
+});
+
 const promotionEl = document.querySelector(".promotion");
 const promotionToggleBtn = document.querySelector(".toggle-promotion");
 let isHidePromotion = false;
@@ -111,3 +137,17 @@ function floatingObject(selector, delay, size) {
 floatingObject(".floating1", 1, 15);
 floatingObject(".floating1", 0.5, 15);
 floatingObject(".floating1", 1.5, 20);
+
+// ScrollMagic 애니메이션 효과
+const spyELs = document.querySelectorAll("section.scroll-spy");
+spyELs.forEach(function (spyEl) {
+  new ScrollMagic.Scene({
+    triggerElement: spyEl, // 보여짐 여부를 감시할 요소들을   triggerElement옵션에다가 지정한다.
+    triggerHook: 0.8,
+  })
+    .setClassToggle(spyEl, "show")
+    .addTo(new ScrollMagic.Controller());
+});
+
+const thisYear = document.querySelector(".this-year");
+thisYear.textContent = new Date().getFullYear();
