@@ -56,7 +56,7 @@ a {
 }
 .btn.btn--gold {
   color: #d9aa8a;
-  background-color: #d9aa8a;
+  border: 1px solid #d9aa8a;
 }
 .btn.btn--gold:hover {
   color: #fff;
@@ -64,7 +64,7 @@ a {
 }
 .btn.btn--white {
   color: #fff;
-  background-color: #fff;
+  border: 1px solid #fff;
 }
 .btn.btn--white:hover {
   color: #333;
@@ -521,4 +521,106 @@ header .badges .badge {
   left: 0;
   width: 100%;
   height: 100%;
+}
+#player {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0%;
+}
+.youtube .inner {
+  height: 700px;
+}
+.youtube .floating1 {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+.youtube .floating2 {
+  position: absolute;
+  top: 350px;
+  left: 150;
+}
+/* season-product */
+.season-product {
+  background-image: url("./images/season_product_bg.jpg");
+}
+.season-product .inner {
+  height: 400px;
+}
+.season-product .floating3 {
+  position: absolute;
+  top: -200px;
+  right: 0;
+}
+.season-product .inner .text-group {
+  position: absolute;
+  top: 110px;
+  right: 100px;
+}
+.season-product .inner .text-group .title {
+  margin-bottom: 10px;
+}
+.season-product .inner .text-group .description {
+  margin-bottom: 15px;
+}
+.season-product .inner .text-group .more {
+}
+/* reserve-coffee */
+.reserve-coffee {
+  background-image: url("./images/reserve_bg.jpg");
+}
+.reserve-coffee .inner {
+  height: 400px;
+}
+.reserve-coffee .inner .reserve-log {
+  position: absolute;
+  top: 110px;
+  left: 0;
+}
+.reserve-coffee .inner .text-group {
+  position: absolute;
+  top: 124px;
+  left: 208px;
+}
+.reserve-coffee .inner .product {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.pick-your-favorite {
+  background-image: url("./images/favorite_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; /*  background-attachment: fixed; 뷰포트에 고정한다(스크롤) */
+  background-size: cover;
+}
+.pick-your-favorite .inner {
+  padding: 110px 0;
+}
+
+.pick-your-favorite .inner .text-group {
+  margin-left: 100px;
+  display: flex;
+  width: 362px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.pick-your-favorite .inner .text-group .title {
+  margin-bottom: 40px;
+}
+.pick-your-favorite .inner .text-group .description {
+  margin-bottom: 40px;
+}
+/* reserve-store" */
+.reserve-store {
+  background-image: url("./images/reserve_store_bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.reserve-store .inner {
+  height: 600px;
 }
